@@ -1,5 +1,6 @@
 package org.generation.blogPessoal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 import lombok.Data;
 import javax.persistence.*;
@@ -25,4 +26,8 @@ public class Postagem {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date data = new java.sql.Date(System.currentTimeMillis());
+
+    @ManyToOne
+    @JsonIgnoreProperties("postagem")
+    private Tema tema;
 }
